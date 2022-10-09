@@ -1,28 +1,47 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import data from '../data' 
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { listProducts } from "../actions/productActions";
 
 function HomeScreen(props) {
-    return (
-      <ul className="products">
-        {data.products.map((products) => (
-          <li key={products._id}>
-            <div className="product">
-              <Link to={'/products/' + products._id}>
-                <img src={products.image} alt="product" />
-              </Link>
-              <div className="product-name">
-                <Link to={'/products/' + products._id}>{products.name}</Link>
-              </div>
-              <div className="product-brand">{products.brand}</div>
-              <div className="product-price">${products.price}</div>
-              <div className="product-rating">
-                {products.rating}stars({products.numReviews}reviews)
-              </div>
+  const productList = useSelector(state => state.productList);
+  const { products, loading, error } = productList;
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(listProducts())
+    // const fetchData = async () => {
+    //   const { data } = await axios.get("/api/products");
+    //   setProducts(data);
+    // }
+    // fetchData()
+    return () => {
+      //
+    };
+  }, [dispatch]);
+
+  return (
+    loading ? <div><h3>Loading...</h3></div> : error ? <div><h3>{error}</h3></div> :
+    <ul className="products">
+      {products.map((product) => (
+        <li key={product._id}>
+          <div className="product">
+            <Link to={"/products/" + product._id}>
+              <img src={product.image} alt="product" />
+            </Link>
+            <div className="product-name">
+              <Link to={"/products/" + product._id}>{product.name}</Link>
             </div>
-          </li>
-        ))}
-      </ul>
-    );
+            <div className="product-brand">{product.brand}</div>
+            <div className="product-price">${product.price}</div>
+            <div className="product-rating">
+              {product.rating}stars({product.numReviews}reviews)
+            </div>
+          </div>
+        </li>
+      ))}
+    </ul>
+  );
 }
-export default HomeScreen
+export default HomeScreen;
