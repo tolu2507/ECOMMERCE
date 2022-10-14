@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 import "./App.css";
+import CartScreen from "./Screens/CartScreen";
 import HomeScreen from "./Screens/Homescreen";
 import ProductScreen from "./Screens/ProductScreen";
 
@@ -17,7 +18,7 @@ function App() {
         <header className="header">
           <div className="brand">
             <button onClick={openMenu}>&#9776;</button>
-            <Link to="/" > Jumia </Link>
+            <Link to="/"> Jumia </Link>
           </div>
           <div className="header-links">
             <a href="cart.html">Cart</a>
@@ -28,6 +29,7 @@ function App() {
           <div className="content">
             <Routes>
               <Route path="/products/:id" element={<ProductScreen />} />
+              <Route path="/cart/:id?" element={<CartScreen />} />
               <Route path="/" element={<HomeScreen />} exact />
             </Routes>
           </div>
