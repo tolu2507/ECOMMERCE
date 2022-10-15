@@ -27,10 +27,20 @@ function App() {
         </header>
         <main className="main">
           <div className="content">
-            <Routes>
+            {/* <Routes>
               <Route path="/products/:id" element={<ProductScreen />} />
-              <Route path="/cart/:id?" element={<CartScreen />} />
+              <Route path="/cart:id" element={<CartScreen />} />
+              <Route path="/cart/" element={<CartScreen />} />
               <Route path="/" element={<HomeScreen />} exact />
+            </Routes> */}
+
+            <Routes>
+              <Route path="/" element={<HomeScreen />} exact/>
+              <Route path="/products/:id" element={<ProductScreen />} />
+              <Route path="/cart/">
+                <Route path=":id" element={<CartScreen />} />
+                <Route index element={<CartScreen />} />
+              </Route>
             </Routes>
           </div>
         </main>
