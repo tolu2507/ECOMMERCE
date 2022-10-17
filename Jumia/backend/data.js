@@ -9,6 +9,7 @@ const data = {
       brand: "Sneh",
       rating: 5.0,
       numReviews: 20,
+      inStock: 7,
     },
     {
       _id: "2",
@@ -19,6 +20,7 @@ const data = {
       brand: "Sneh",
       rating: 5.0,
       numReviews: 20,
+      inStock: 5,
     },
     {
       _id: "3",
@@ -29,6 +31,7 @@ const data = {
       brand: "Sneh",
       rating: 5.0,
       numReviews: 20,
+      inStock: 9,
     },
     {
       _id: "4",
@@ -39,6 +42,7 @@ const data = {
       brand: "Sneh",
       rating: 5.0,
       numReviews: 20,
+      inStock: 10,
     },
     {
       _id: "5",
@@ -49,6 +53,7 @@ const data = {
       brand: "Sneh",
       rating: 5.0,
       numReviews: 20,
+      inStock: 3,
     },
     {
       _id: "6",
@@ -59,6 +64,7 @@ const data = {
       brand: "Sneh",
       rating: 5.0,
       numReviews: 20,
+      inStock: 10
     },
   ],
 };
