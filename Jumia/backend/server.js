@@ -1,9 +1,24 @@
 import express from 'express';
-import data from './data.js'
+import path from 'path';
+import data from './data.js';
+import dotenv from 'dotenv'
+import config from './config.js';
+import mongoose from 'mongoose';
+import bodyparser from 'body-parser';
+import userRoute from './routes/userRoutes.js'
+
+dotenv.config();
+
+const mongodbUrl = config.MONGODB_URL;
+
+mongoose.connect(mongodbUrl, {
+    useNewUrlParser: true
+}).catch(error => console.log(error.message));
 
 const port = 2001
 const app = express();
-
+app.use(bodyparser.json());
+app.use("/api/users", userRoute)
 app.get("/api/products", (req, res) => {
     res.send(data.products)
 })
