@@ -2,30 +2,33 @@ import React, { useEffect, useState } from "react";
 // import data from "../data";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { signIn } from "../actions/Useractions.js";
+import { register } from "../actions/Useractions.js";
 
-function SigninScreen(props) {
+function RegisterScreen(props) {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const userSignin = useSelector((state) => state.userSignin);
-  const {userInfo, loading, error} = userSignin;
+  const [repassword, setRePassword] = useState("");
+  const userRegister = useSelector((state) => state.userRegister);
+  const { registerInfo, loading, error } = userRegister;
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { search } = useLocation();
   const re = new URLSearchParams(search).get("redirect");
-  const redirect = re ? re : "/";
+  const redirect = re ? re : '/';
+
   useEffect(() => {
-    if (userInfo && search) {
+    if (registerInfo && search) {
       navigate(redirect);
     }
     return () => {
       //
     };
-  }, [userInfo, navigate, search, redirect]);
+  }, [registerInfo, navigate, search, redirect]);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(signIn(email, password));
+    dispatch(register(name, email, password, repassword));
   };
 
   return (
@@ -35,7 +38,7 @@ function SigninScreen(props) {
           <li>
             <div className="form-sign">
               {" "}
-              <h3>SIGN-IN</h3>
+              <h3>CREATE AN ACCOUNT</h3>
             </div>
           </li>
           <li>
@@ -49,6 +52,17 @@ function SigninScreen(props) {
                 <h2>{error}</h2>
               </div>
             )}
+          </li>
+          <li>
+            <label htmlFor="name">
+              <h3>Name</h3>
+            </label>
+            <input
+              type="name"
+              name="name"
+              id="name"
+              onChange={(e) => setName(e.target.value)}
+            />
           </li>
           <li>
             <label htmlFor="email">
@@ -73,16 +87,28 @@ function SigninScreen(props) {
             />
           </li>
           <li>
+            <label htmlFor="repassword">
+              <h3>RePassword</h3>
+            </label>
+            <input
+              type="repassword"
+              name="repassword"
+              id="repassword"
+              onChange={(e) => setRePassword(e.target.value)}
+            />
+          </li>
+          <li>
             <button type="submit" className="button">
-              Sign In
+              Sign Up
             </button>
           </li>
           <li>
-            <h3>New to Jumia ?</h3>
-          </li>
-          <li>
-            <Link to={redirect === '/' ? '/register' : '/register?redirect=' + redirect} className="button-fullwidth">
-              Creata Your Jumia Account
+            Already have an account ?
+            <Link
+              to={redirect === "/" ? "/signin" : "/signin?redirect=" + redirect}
+              className="button-fullwidth"
+            >
+              Sign into Your Jumia
             </Link>
           </li>
         </ul>
@@ -90,4 +116,4 @@ function SigninScreen(props) {
     </div>
   );
 }
-export default SigninScreen;
+export default RegisterScreen;

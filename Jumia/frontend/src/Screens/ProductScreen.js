@@ -22,7 +22,7 @@ function ProductScreen(props) {
   const navigate = useNavigate();
 
   const handleAddToCart = () => {
-    navigate("/cart/" + id + "?qty=" + qty);
+    navigate(`/cart/${id}?qty=${qty}`);
   };
 
   return (
