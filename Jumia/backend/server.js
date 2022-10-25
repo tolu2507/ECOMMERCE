@@ -1,5 +1,4 @@
 import express from 'express';
-import path from 'path';
 import data from './data.js';
 import dotenv from 'dotenv'
 import config from './config.js';
@@ -21,6 +20,7 @@ const app = express();
 app.use(bodyparser.json());
 app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);
+
 // app.get("/api/products", (req, res) => {
 //     res.send(data.products)
 // })

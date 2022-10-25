@@ -20,18 +20,18 @@ body {
     "footer"
   ;
   grid-template-columns: 1fr;
-  grid-template-rows: 5rem 5rem 1fr 5rem;
+  grid-template-rows: 15rem 5rem 1fr 10rem;
   height: 100%;
 }
 
 .header {
   grid-area: header;
-  background-color: rgb(247, 212, 15);
-  color: rgb(61, 22, 202);
+  background-color: rgba(54, 52, 52, 0.897);
+  color: rgb(240, 236, 255);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem
+  padding: .1rem
 }
 .header-links{
   display: flex;
@@ -42,6 +42,7 @@ body {
   font-size: 2.5rem;
   font-weight: bold;
   text-decoration: none;
+  color: aliceblue;
 }
 
 .brand a:hover {
@@ -50,7 +51,7 @@ body {
 
 .header-links a {
   font-size: 1.5rem;
-  color: darkgreen;
+  color: rgb(249, 253, 249);
   text-decoration: none;
   font-weight: bold;
 }
@@ -62,12 +63,11 @@ body {
 .main {
   grid-area: main;
   height:100%;
-  background-image: linear-gradient(to right, rgba(247, 39, 39, 0.253) , rgba(255, 255, 0, 0.247));
 }
 .footer {
   grid-area: footer;
-  background-color: rgb(247, 212, 15);
-  color: rgb(61, 22, 202);
+  background-color:rgba(54, 52, 52, 0.897);
+  color: rgb(221, 212, 253);
   font-size: larger;
   font-weight: bolder;
   display: flex;
@@ -147,8 +147,9 @@ a:hover {
   transition: all .5s;
   transform: translateX(-30rem);
   width: 30rem;
-  background-color: #f6f8dd;
+  background-color: #0a0a0a67;
   height: 100%;
+  color: white
 }
 
 .sidebar.open {
@@ -214,7 +215,8 @@ a:hover {
   border: .2rem #f6f8dd solid;
   cursor: pointer;
   border-radius: 5rem;
-  background-color: rgb(248, 181, 118);
+  background-color: rgb(10, 10, 10);
+  color: white;
 }
 .button:hover{
   border: red solid;
@@ -225,7 +227,8 @@ a:hover {
   cursor: pointer;
   border-radius: 2rem;
   align-self: center;
-  background-color: rgba(158, 113, 17, 0.253);
+  background-color: rgba(8, 8, 8, 0.918);
+  color: white;
 }
 .button-fullwidth:hover {
   border: rgb(133, 47, 47) solid;
@@ -243,7 +246,7 @@ a:hover {
 
 .cart-actions {
   flex: 1 1 20rem;
-  background-color:antiquewhite;
+  background-color:rgba(214, 182, 3, 0.397);
   border-radius: 0.5rem;
   padding: 1rem;
 }

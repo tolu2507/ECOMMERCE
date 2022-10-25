@@ -29,6 +29,7 @@ function RegisterScreen(props) {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(register(name, email, password, repassword));
+    navigate('/signin');
   };
 
   return (
@@ -108,7 +109,7 @@ function RegisterScreen(props) {
               to={redirect === "/" ? "/signin" : "/signin?redirect=" + redirect}
               className="button-fullwidth"
             >
-              Sign into Your Jumia
+              Sign into Your TRENDz
             </Link>
           </li>
         </ul>
