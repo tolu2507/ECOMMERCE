@@ -11,6 +11,7 @@ import ProductsScreen from "./Screens/productsScreen";
 import RegisterScreen from "./Screens/registerScreen";
 import ShippingScreen from "./Screens/shippingScreen";
 import SigninScreen from "./Screens/signinScreen";
+import TrackingScreen from "./Screens/Tracking";
 
 function App() {
   const userSignin = useSelector((state) => state.userSignin);
@@ -28,12 +29,12 @@ function App() {
         <header className="header">
           <div className="brand">
             <button onClick={openMenu}>&#9776;</button>
-            <Link to="/"> Jumia </Link>
+            <Link to="/"> TRENDz </Link>
           </div>
           <div className="header-links">
             <Link to="/cart">Cart</Link>
             {userInfo ? (
-              <Link to="/profile">{userInfo.name}</Link>
+              <Link to="/">{userInfo.name}</Link>
             ) : (
               <Link to="/signin">Sign In</Link>
             )}
@@ -41,13 +42,6 @@ function App() {
         </header>
         <main className="main">
           <div className="content">
-            {/* <Routes>
-              <Route path="/products/:id" element={<ProductScreen />} />
-              <Route path="/cart:id" element={<CartScreen />} />
-              <Route path="/cart/" element={<CartScreen />} />
-              <Route path="/" element={<HomeScreen />} exact />
-            </Routes> */}
-
             <Routes>
               <Route path="/" element={<HomeScreen />} exact />
               <Route path="/products" element={<ProductsScreen />} />
@@ -61,6 +55,7 @@ function App() {
               <Route path="/shipping" element={<ShippingScreen />} />
               <Route path="/payment" element={<PaymentScreen />} />
               <Route path="/placeorder" element={<PlaceOrderScreen />} />
+              <Route path="/trackorder" element={<TrackingScreen />} />
             </Routes>
           </div>
         </main>

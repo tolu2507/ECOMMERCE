@@ -1,6 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
+import {
+  Link,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
 import { addToCart, removeFromCart } from "../actions/cartActions";
 
 function CartScreen(props) {
@@ -26,11 +31,11 @@ function CartScreen(props) {
       //
     };
   }, [dispatch, id, qty, searchParams, setSearchParams]);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const checkOutHandler = () => {
-    navigate("/signin?redirect=/shipping")
-  }
+    navigate("/signin?redirect=/shipping");
+  };
 
   return (
     <div className="cart">
@@ -92,7 +97,11 @@ function CartScreen(props) {
           SubTotal({cartItems.reduce((a, c) => a + Number(c.qty), 0)} items) : ${" "}
           {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
         </h3>
-        <button onClick={checkOutHandler} className="button" disabled={cartItems.length === 0}>
+        <button
+          onClick={checkOutHandler}
+          className="button"
+          disabled={cartItems.length === 0}
+        >
           proceed to Checkout
         </button>
       </div>

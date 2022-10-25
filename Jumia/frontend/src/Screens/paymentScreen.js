@@ -35,10 +35,10 @@ function PaymentScreen(props) {
                   type="radio"
                   name="paymentMethod"
                   id="paymentMethod"
-                  value="paypal"
+                  value="Flutterwave"
                   onChange={(e) => setPaymentMethod(e.target.value)}
                 />
-                <label htmlFor="paymentMethod">Paypal</label>
+                <label htmlFor="paymentMethod">Flutterwave</label>
               </div>
             </li>
             <li>

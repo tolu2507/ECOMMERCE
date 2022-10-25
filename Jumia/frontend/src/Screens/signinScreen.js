@@ -26,6 +26,7 @@ function SigninScreen(props) {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(signIn(email, password));
+    navigate('/')
   };
 
   return (
