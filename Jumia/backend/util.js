@@ -12,7 +12,7 @@ const getToken = (user) => {
 const isAuth = (req, res, next) => {
   const token = req.headers.authorization;
   if (token) {
-    const trueToken = token.slice(7, token.lenght);
+    const trueToken = token.slice(7, token.length);
     jwt.verify(trueToken, config.JWT_SECRET, (err, decode) => {
       if (err) {
         return res.status(401).send({ msg: "Invalid Token" });
